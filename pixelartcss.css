@@ -1,0 +1,30 @@
+body {
+  display: flex;
+  flex-flow: wrap;
+  margin: 0;
+  padding: 10px;
+}
+
+.container{
+  position: absolute;
+  border: 5px solid black;
+  justify-content: center;
+  align-items: center;
+  margin: 20%;
+  display: flex;
+  height: 60vh;
+  width: 60vw;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.palette {
+  background-color: #505050;
+}
