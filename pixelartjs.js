@@ -27,12 +27,19 @@ $(document).ready(function() {
     body.prepend(tileArr[i]);
   }
 
+  function titleColor(){
+    var canvas = document.getElementsByTagName('h1')[0];
+    canvas.style.color = randomColor();
+  }
+
   function tileReplace(){
     var randomIndex = Math.ceil(Math.random()*tileArr.length-1);
     var tileTarget = tileArr[randomIndex]
     tileTarget.style.backgroundColor = randomColor();
   }
   var intervalID = window.setInterval(tileReplace, 5);
+  var intervalID = window.setInterval(titleColor, 1000);
+
 
   var canvasArr = [];
   for(var i=0;i<1739;i++){
@@ -49,6 +56,7 @@ $(document).ready(function() {
   var activeColor = '#FFFFFF';
   var body = document.getElementsByTagName('body')[0];
   var canvas = document.getElementsByClassName('canvas')[0];
+
 
 //Click event to change the active color
   body.addEventListener('click',function(event){
