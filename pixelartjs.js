@@ -27,10 +27,10 @@ $(document).ready(function() {
     body.prepend(tileArr[i]);
   }
 
-  function titleColor(){
-    var canvas = document.getElementsByTagName('h1')[0];
-    canvas.style.color = randomColor();
-  }
+  // function titleColor(){
+  //   var canvas = document.getElementsByTagName('h1')[0];
+  //   canvas.style.color = randomColor();
+  // }
 
   function tileReplace(){
     var randomIndex = Math.ceil(Math.random()*tileArr.length-1);
@@ -38,10 +38,10 @@ $(document).ready(function() {
     tileTarget.style.backgroundColor = randomColor();
   }
   var intervalID = window.setInterval(tileReplace, 5);
-  var intervalID = window.setInterval(titleColor, 1000);
+  // var intervalID = window.setInterval(titleColor, 1000);
 
 
-  var canvasArr = [];
+  // var canvasArr = [];
   for(var i=0;i<1739;i++){
     var tile = document.createElement('div');
     var canvas = document.getElementsByClassName('canvas')[0];
@@ -68,41 +68,70 @@ $(document).ready(function() {
   //   event.target.style.backgroundColor = activeColor
   // })
 
-  var targetElement,dragData=null;
-  canvas.addEventListener('mousedown',startDrag);
-  canvas.addEventListener('mousemove',drag);
-  canvas.addEventListener('mouseup',stopDrag);
+
+  //var targetElement,dragData=null;
+
+  var mousedown = false;
+
+  canvas.addEventListener('mousedown',function(event){
+    mousedown = true;
+  });
+
+  canvas.addEventListener('mouseover', function(event){
+    if(mousedown === true){
+      event.target.style.backgroundColor = activeColor;
+    }
+  });
+
+  canvas.addEventListener('mouseup', function(event){
+    mousedown = false;
+  });
 
 
-      function startDrag(event) {
-        var targetElement = event.target
-        if(!dragData) {
-          dragData={
-            x: event.clientX-targetElement.offsetLeft,
-            y: event.clientY-targetElement.offsetTop
-          };
-        };
-        event.target.style.backgroundColor = activeColor
-      }
-      function drag(event) {
-        var targetElement = event.target
-        if(dragData) {
-          event;
-          targetElement.style.left=event.clientX-dragData.x+"px";
-          targetElement.top=event.clientY-dragData.y+"px";
-        }
-        event.target.style.backgroundColor = activeColor
-      }
-      function stopDrag(ev) {
-        var targetElement = event.target
-        if(dragData) {
-          event;
-          targetElement.style.left=event.clientX-dragData.x+"px";
-          targetElement.top=event.clientY-dragData.y+"px";
-          dragData=null;
-        }
-        event.target.style.backgroundColor = activeColor
-      }
+  // canvas.addEventListener('mousemove',drag);
+  // canvas.addEventListener('mouseup',stopDrag);
 
+
+
+  // function startDrag(event){
+  //   if('mousedown' === true){
+  //     draw();
+  //   }
+  // }
+
+
+
+      //
+      //
+      // function startDrag(event) {
+      //   var targetElement = event.target
+      //   if(!dragData) {
+      //     dragData={
+      //       x: event.clientX-targetElement.offsetLeft,
+      //       y: event.clientY-targetElement.offsetTop
+      //     };
+      //   };
+      //   event.target.style.backgroundColor = activeColor
+      // }
+      // function drag(event) {
+      //   var targetElement = event.target
+      //   if(!dragData) {
+      //     event;
+      //     targetElement.style.left=event.clientX-dragData.x+"px";
+      //     targetElement.top=event.clientY-dragData.y+"px";
+      //   }
+      //   event.target.style.backgroundColor = activeColor
+      // }
+      // function stopDrag(ev) {
+      //   var targetElement = event.target
+      //   if(!dragData) {
+      //     event;
+      //     targetElement.style.left=event.clientX-dragData.x+"px";
+      //     targetElement.top=event.clientY-dragData.y+"px";
+      //     dragData=null;
+      //   }
+      //   event.target.style.backgroundColor = activeColor
+      // }
+      //
 
 });
