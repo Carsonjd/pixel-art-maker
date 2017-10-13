@@ -64,40 +64,45 @@ $(document).ready(function() {
     console.log(activeColor)
   });
 
-  canvas.addEventListener('click',function(event){
-    event.target.style.backgroundColor = activeColor
-  })
+  // canvas.addEventListener('click',function(event){
+  //   event.target.style.backgroundColor = activeColor
+  // })
 
-  // var targetElement,dragData=null;
-  // canvas.addEventListener('mousedown',startDrag);
-  // canvas.addEventListener('mousemove',drag);
-  // canvas.addEventListener('mouseup',stopDrag);
-  //
-  //
-  //     function startDrag(event) {
-  //       var targetElement = event.target
-  //       if(!dragData) {
-  //         dragData={
-  //           x: event.clientX-targetElement.offsetLeft,
-  //           y: event.clientY-targetElement.offsetTop
-  //         };
-  //       };
-  //     }
-  //     function drag(event) {
-  //       if(dragData) {
-  //         event;
-  //         targetElement.style.left=event.clientX-dragData.x+"px";
-  //         targetElement.top=event.clientY-dragData.y+"px";
-  //       }
-  //     }
-  //     function stopDrag(ev) {
-  //       if(dragData) {
-  //         event;
-  //         targetElement.style.left=event.clientX-dragData.x+"px";
-  //         targetElement.top=event.clientY-dragData.y+"px";
-  //         dragData=null;
-  //       }
-  //     }
-  //
+  var targetElement,dragData=null;
+  canvas.addEventListener('mousedown',startDrag);
+  canvas.addEventListener('mousemove',drag);
+  canvas.addEventListener('mouseup',stopDrag);
+
+
+      function startDrag(event) {
+        var targetElement = event.target
+        if(!dragData) {
+          dragData={
+            x: event.clientX-targetElement.offsetLeft,
+            y: event.clientY-targetElement.offsetTop
+          };
+        };
+        event.target.style.backgroundColor = activeColor
+      }
+      function drag(event) {
+        var targetElement = event.target
+        if(dragData) {
+          event;
+          targetElement.style.left=event.clientX-dragData.x+"px";
+          targetElement.top=event.clientY-dragData.y+"px";
+        }
+        event.target.style.backgroundColor = activeColor
+      }
+      function stopDrag(ev) {
+        var targetElement = event.target
+        if(dragData) {
+          event;
+          targetElement.style.left=event.clientX-dragData.x+"px";
+          targetElement.top=event.clientY-dragData.y+"px";
+          dragData=null;
+        }
+        event.target.style.backgroundColor = activeColor
+      }
+
 
 });
