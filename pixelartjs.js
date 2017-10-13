@@ -12,7 +12,7 @@ $(document).ready(function() {
   }
 
   var tileArr = [];
-  for(var i=0;i<3000;i++){
+  for(var i=0;i<2491;i++){
     var tile = document.createElement('div');
     tile.style.width = '2.1%';
     tile.style.paddingBottom = '2.1%';
