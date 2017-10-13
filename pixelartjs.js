@@ -42,9 +42,54 @@ $(document).ready(function() {
     tile.style.paddingBottom = '2.1%';
     tile.display = 'float';
     tile.style.float = 'left';
-    tile.style.backgroundColor = '#909090';
+    tile.style.backgroundColor = '#000000';
     canvas.prepend(tile);
   };
 
+  var activeColor = '#FFFFFF';
+  var body = document.getElementsByTagName('body')[0];
+  var canvas = document.getElementsByClassName('canvas')[0];
+
+//Click event to change the active color
+  body.addEventListener('click',function(event){
+    activeColor = event.target.style.backgroundColor
+    console.log(activeColor)
+  });
+
+  canvas.addEventListener('click',function(event){
+    event.target.style.backgroundColor = activeColor
+  })
+
+  // var targetElement,dragData=null;
+  // canvas.addEventListener('mousedown',startDrag);
+  // canvas.addEventListener('mousemove',drag);
+  // canvas.addEventListener('mouseup',stopDrag);
+  //
+  //
+  //     function startDrag(event) {
+  //       var targetElement = event.target
+  //       if(!dragData) {
+  //         dragData={
+  //           x: event.clientX-targetElement.offsetLeft,
+  //           y: event.clientY-targetElement.offsetTop
+  //         };
+  //       };
+  //     }
+  //     function drag(event) {
+  //       if(dragData) {
+  //         event;
+  //         targetElement.style.left=event.clientX-dragData.x+"px";
+  //         targetElement.top=event.clientY-dragData.y+"px";
+  //       }
+  //     }
+  //     function stopDrag(ev) {
+  //       if(dragData) {
+  //         event;
+  //         targetElement.style.left=event.clientX-dragData.x+"px";
+  //         targetElement.top=event.clientY-dragData.y+"px";
+  //         dragData=null;
+  //       }
+  //     }
+  //
 
 });

@@ -5,9 +5,15 @@ body {
   padding: 10px;
 }
 
+h1 {
+  position: absolute;
+  justify-content: center;
+  margin: 20%;
+}
+
 .container{
   position: absolute;
-  border: 5px solid black;
+  /*border: 5px solid black;*/
   justify-content: center;
   align-items: center;
   margin: 20%;
